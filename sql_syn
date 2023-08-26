@@ -1,0 +1,72 @@
+####Student Marks Analysis Using SQL####
+
+
+
+create table class9(name varchar(12),id int,maths_marks int,History_marks int,Science_marks int,Social_science_marks int,marathi_marks int,english_marks int,Hindi_marks int)
+insert into 
+class9(name,id,maths_marks,History_marks,Science_marks,Social_science_marks,marathi_marks,english_marks)
+values("shruti",1,94,87,82,92,91,65),("sayali",2,92,76,82,89,89,60),("teju",3,78,99,68,65,89,64),("priya
+nka",4,93,67,44,56,65,32),('kshitija',5,94,93,85,73,67,45),("nikita",6,78,98,76,98,78,66),("aarati",7,56,
+77,76,43,90,56),("komal",8,56,77,65,77,44,65),("ankita",9,78,44,55,43,98,56),("shruti",10,89,74,22,45,
+66,45)
+select * from class9
+	
+select * from class9
+create table class10(name varchar(12),id int,maths_mark int,History_mark int,Science_mark int,Social_science_mark int,marathi_mark int,english_mark int,Hindi_mark int)
+alter table class10 add column sirname varchar(12)
+insert into class10(name,id,maths_mark,History_mark,Science_mark,Social_science_mark,marathi_mark,english_mark,Hindi_mark,sirname)
+values("shruti",1,75,89,80,95,97,78,66,"pavaskar"),("sayali",2,67,81,82,90,82,80,45,"mane"),("teju",3,85,91,68,55,89,64,56,'kadam'),("priya
+nka",4,56,67,44,56,65,32,56,"kale"),('kshitija',5,83,93,85,73,67,45,56,"patakar"),("nikita",6,67,98,76,98,78,66,65,"bobade"),("aarati",7,56,
+77,76,43,90,56,98,"pavar"),("komal",8,53,77,65,77,44,65,65,"yadav"),("ankita",9,70,44,55,43,98,56,56,"salunkhe"),("shruti_p",35,89,74,22,45,
+66,45,66,"patil")
+select * from class10
+alter table class9 add constraint primary key pk1(id)
+desc class9
+alter table class10 add constraint primary key pk2(id)
+select maths_marks,english_marks from class9
+select maths_mark,english_mark from class10
+select class9.maths_marks,class9.science_marks,class10.maths_mark,class10.science_mark from class9 join class10 on class9.id=class10.id where class9.name="shruti"
+select class9.name,class9.maths_marks as "math(9)",class10.maths_mark as "math(10)",class9.english_marks as "english(9)",class10.english_mark as "english(10)",class9.science_marks as "science(9)",class10.science_mark as "science(10)",
+.social_science_marks as "social_sclass9cience(9)",class10.social_science_mark as "social_science(10)"
+,class9.hindi_marks as "hindi(9)",class10.hindi_mark as "hindi(10)",class9.marathi_marks as "marathi(9)",class10.marathi_mark as "marathi(10)" from class9 join class10 on class9.id=class10.id
+
+select class9.name,class9.maths_marks as "math(9)",class10.maths_mark as "math(10)",class9.english_marks as "english(9)",class10.english_mark as "english(10)",class9.science_marks as "science(9)",class10.science_mark as "science(10)",
+class9.social_science_marks as "social_science(9)",class10.social_science_mark as "social_science(10)"
+,class9.hindi_marks as "hindi(9)",class10.hindi_mark as "hindi(10)",class9.marathi_marks as "marathi(9)",class10.marathi_mark as "marathi(10)" from class9 join class10 on class9.id=class10.id where class9.name="aarati"
+select class9.name,((class9.maths_marks+class9.History_marks+class9.Science_marks+class9.Social_science_marks+class9.marathi_marks+class9.english_marks)/600*100) from class9
+select class10.name,((class10.maths_mark+class10.History_mark+class10.Science_mark+class10.Social_science_mark+class10.marathi_mark+class10.english_mark)/600*100) from class10
+select class9.name,((class9.maths_marks+class9.History_marks+class9.Science_marks+class9.Social_science_marks+class9.marathi_marks+class9.english_marks)/600*100),
+((class10.maths_mark+class10.History_mark+class10.Science_mark+class10.Social_science_mark+class10.marathi_mark+class10.english_mark)/600*100) from class10
+join class9 on class10.id=class9.id 
+select class9.name,((class9.maths_marks+class9.History_marks+class9.Science_marks+class9.Social_science_marks+class9.marathi_marks+class9.english_marks)/600*100),
+((class10.maths_mark+class10.History_mark+class10.Science_mark+class10.Social_science_mark+class10.marathi_mark+class10.english_mark)/600*100),(((class9.maths_marks+class9.History_marks+class9.Science_marks+class9.Social_science_marks+class9.marathi_marks+class9.english_marks)/600*100)-
+((class10.maths_mark+class10.History_mark+class10.Science_mark+class10.Social_science_mark+class10.marathi_mark+class10.english_mark))/600*100)from class10
+join class9 on class10.id=class9.id 
+update class10 set maths_mark=91 where name="sayali"
+select * from class10
+select name from class10 where(maths_mark)<35 or (History_mark)<35 or (Science_mark)<35 or (Social_science_mark)<35 or (marathi_mark)<35 or(english_mark)<35 or(hindi_mark) 
+select count(name) from class10
+select concat(name," ",sirname) as "full name" from class10
+select name,sirname,concat(name,"",sirname,"@gmail.com") as "mail id" from class10
+select name from class10 where name like "_hru%"
+select class9.english_marks as "english(9)",class10.english_mark as "english(10)" from class10 join class9 on class10.id=class9.id
+select * from class9
+alter table class9 drop column hindi_marks
+select * from class9
+select class10.name,class10.maths_mark from class10 order by maths_mark asc limit 1
+select class10.name,class10.maths_mark from class10 order by maths_mark desc limit 1
+
+select class9.name,class9.maths_marks from class9 order by maths_marks asc limit 1
+select class9.name,class9.maths_marks from class9 order by maths_marks desc limit 1
+select class9.name,((class9.maths_marks+class9.History_marks+class9.Science_marks+class9.Social_science_marks+class9.marathi_marks+class9.english_marks)/600*100) 
+as "student_percentage" from class9 order by student_percentage desc 
+select class9.name,((class9.maths_marks+class9.History_marks+class9.Science_marks+class9.Social_science_marks+class9.marathi_marks+class9.english_marks)/600*100) 
+as "student_percentage" from class9 order by student_percentage desc limit 3
+select concat(name," ",sirname),((class10.maths_mark+class10.History_mark+class10.Science_mark+class10.Social_science_mark+class10.marathi_mark+class10.english_mark)/600*100) 
+as "student_percentage" from class10 order by student_percentage desc limit 3
+select concat(name," ",sirname),((class10.maths_mark+class10.History_mark+class10.Science_mark+class10.Social_science_mark+class10.marathi_mark+class10.english_mark)/600*100) 
+as "student_percentage" from class10 order by student_percentage desc 
+select concat(name," ",sirname),((class10.maths_mark+class10.History_mark+class10.Science_mark+class10.Social_science_mark+class10.marathi_mark+class10.english_mark)/600*100) 
+as "student_percentage" from class10 order by student_percentage asc limit 1
+select class9.name,((class9.maths_marks+class9.History_marks+class9.Science_marks+class9.Social_science_marks+class9.marathi_marks+class9.english_marks)/600*100) 
+as "student_percentage" from class9 order by student_percentage asc limit 1
