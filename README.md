@@ -1,1 +1,2 @@
 # sql_project
+In this case study, we aim to provide meaningful insights by analyzing, manipulating, transforming, and querying the data using Data Definition Language (DDL), Data Manipulation Language (DML), and Data Query Language (DQL).In this case study, we aim to provide meaningful insights by analyzing, manipulating, transforming, and querying the data using Data Definition Language (DDL), Data Manipulation Language (DML), and Data Query Language (DQL).
